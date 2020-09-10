@@ -10,3 +10,6 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(mqtt_ssl)
 
 target_add_binary_data(mqtt_ssl.elf "main/mqtt_eclipse_org.pem" TEXT)
+target_add_binary_data(${CMAKE_PROJECT_NAME}.elf "main/client.crt" TEXT)
+target_add_binary_data(${CMAKE_PROJECT_NAME}.elf "main/client.key" TEXT)
+target_add_binary_data(${CMAKE_PROJECT_NAME}.elf "main/server.crt" TEXT)

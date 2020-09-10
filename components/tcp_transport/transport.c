@@ -178,9 +178,12 @@ int esp_transport_connect_async(esp_transport_handle_t t, const char *host, int 
 
 int esp_transport_read(esp_transport_handle_t t, char *buffer, int len, int timeout_ms)
 {
+    printf("\nREADING\n");
     if (t && t->_read) {
+        printf("\nALL OK\n");
         return t->_read(t, buffer, len, timeout_ms);
     }
+    printf("\nERROR TRANSPORT READ\n");
     return -1;
 }
 

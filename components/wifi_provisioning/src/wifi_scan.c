@@ -134,9 +134,9 @@ static esp_err_t cmd_scan_result_handler(WiFiScanPayload *req,
     resp->status = STATUS__Success;
     resp->payload_case = WI_FI_SCAN_PAYLOAD__PAYLOAD_RESP_SCAN_RESULT;
     resp->resp_scan_result = resp_payload;
-
-    results = (WiFiScanResult **) calloc(req->cmd_scan_result->count,
-                                         sizeof(WiFiScanResult *));
+    printf("%d                   %d ",req->cmd_scan_result->count, sizeof(WiFiScanResult *));
+    //req->cmd_scan_result->count = 1;
+    results = (WiFiScanResult **) malloc(req->cmd_scan_result->count*sizeof(WiFiScanResult *));
     if (!results) {
         ESP_LOGE(TAG, "Failed to allocate memory for results array");
         return ESP_ERR_NO_MEM;
